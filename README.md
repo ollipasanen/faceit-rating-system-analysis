@@ -1,4 +1,4 @@
-## Analysis of the rating system in FACEIT (CS:GO)
+## An analysis of the rating system in FACEIT (CS:GO)
  
 ### 1. Introduction
 
