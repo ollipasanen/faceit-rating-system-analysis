@@ -170,6 +170,12 @@ While collecting the data I found some very weird results which suggest that eit
 
 On the 1st of Feb 2020, he gained +1 and +10 rating for losses. In Elo's system, you can never lose points for a win. On the same day, he's also lost 45 and 47 points for winning matches. Clearly, there's something weird going on. [This thread on the FACEIT forums](https://forums.faceit.com/t/elo-visual-glitch/1688/2) suggests that there might be some matches that are bugged (cancelled?) and have affected your Elo but are not shown on your profile. But why do cancelled matches affect your Elo?
 
+Another super weird example [here](https://www.faceit.com/en/players/PitCaxi/stats/csgo). +275 gain for a loss?! That's not right. 
+
+![Figure 11](images/figure11.PNG)
+
+*Figure 11. PitCaxi's match history*
+
 These data points might have affected the analysis to some degree but as the glitches are not super common, I don't think it's a huge issue.
 
 **6.2 Gaining rank indefinitely**
