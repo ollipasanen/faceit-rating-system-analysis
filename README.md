@@ -19,6 +19,11 @@ I hope you enjoy the writeup and learn something new!
 
 *This analysis is not meant to harm or criticize FACEIT in any way but to provide information about the rating system to the vast number of players using their services. I do not work for FACEIT, I am not endorsed by them and I do not know the exact details of their system. Hence, please do take this analysis with a grain of salt.*
 
+**Updates**
+
+- 26-02-2020: Updated plots to show the latest data
+- 21-02-2020: Added another example of weird Elo data
+
 ### 2. Data collection and tools
 
 FACEIT introduced a feature recently where anyone can see the Elo changes for a player's recent matches. This data is the basis for our analysis (Note Chapter 6.1). I started by sampling ongoing matches and later polling for their result after they had finished. For each player encountered I queried their profile, collecting the mentioned Elo history after each match. Knowing who participated in which games, participant ratings at the time of the match could be calculated for each match (FACEIT does not provide this information via their Data API). This data was then stored in an sqlite database for analysis.
