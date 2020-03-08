@@ -21,6 +21,7 @@ I hope you enjoy the writeup and learn something new!
 
 **Updates**
 
+- 08-03-2020: Fixed the elo change vs. elo difference plot and analysis
 - 26-02-2020: Updated plots to show the latest data
 - 21-02-2020: Added another example of weird Elo data
 
@@ -89,11 +90,17 @@ A successfully played match (no quitters, cheaters, etc.) will cause the ratings
 
 *Figure 5. The points gained from a match with Team Elo difference*
 
-There is a clear linear correlation between the absolute Elo gained / lost and the team Elo difference. If the difference between the Team Elo is 0 (i.e. the teams have exactly the same approximated skill level) the Elo gain/loss is 25. Anyone who has played FACEIT knows that this is the most common Elo change. The reason that the differences are stacked in columns is that FACEIT stores their ratings and similarly rating changes as integers, so the Elo ratings and changes are always rounded/floored to the nearest integer. If this weren't the case, my assumption is that the points would form a neat line. 
+There is a clear ~~linear correlation~~ logistic correlation between the absolute Elo gained / lost and the team Elo difference. If the difference between the Team Elo is 0 (i.e. the teams have exactly the same approximated skill level) the Elo gain/loss is 25. Anyone who has played FACEIT knows that this is the most common Elo change. The reason that the differences are stacked in columns is that FACEIT stores their ratings and similarly rating changes as integers, so the Elo ratings and changes are always rounded/floored to the nearest integer. ~~If this weren't the case, my assumption is that the points would form a neat line.~~
 
-The higher the winning team's Elo is compared to the losing team, the fewer points they get for a win. If your team wins with 500 more Elo you will only gain only around 3 points and the losing team will only lose 3. If your team **loses** with 500 more Elo, the change is dramatic at around 47 points lost/gained since it was an upset match.
+The higher the winning team's Elo is compared to the losing team, the fewer points they get for a win. If your team wins with 500 more Elo you will only gain only around 3 points and the losing team will only lose 3. If your team **loses** with 500 more Elo, the change is dramatic at around 47 points lost/gained since it was an upset match. The bigger the team Elo difference is, the more dramatic the point change becomes.
 
-Based on just this linear correlation alone, we can be quite certain that FACEIT does use the original Elo system where the rating of a single participant is the average rating of all team participants (i.e. Team Elo). If they used e.g. Glicko or TrueSkill, you could gain different amounts of Elo for the same Team Elo difference which is not what we see in the plot.
+Let's compare the plot to a plot of the logistic function 50/(1+10^(x/400)) which describes the point changes in the Elo system with K=50.
+
+![Figure 5.1](images/figure51.png)
+
+*Figure 5.1. Figure 5 with additional plot of y=50/(1+10^(x/400))*
+
+Based on just this ~~linear correlation~~ logistic correlation alone, we can be quite certain that FACEIT does use the original Elo system where the rating of a single participant is the average rating of all team participants (i.e. Team Elo). If they used e.g. Glicko or TrueSkill, you could gain different amounts of Elo for the same Team Elo difference which is not what we see in the plot.
 
 **3.4 K-Factor**
 

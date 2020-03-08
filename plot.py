@@ -214,7 +214,7 @@ def figure5():
       for p in entry[2]:
         if p is None or p == 100.0:
           continue
-        l.append("{{{:.2f}, {:.2f}}}".format(p, team1_elo - team2_elo))
+        l.append("{{{:.2f}, {:.2f}}}".format(team1_elo - team2_elo, p))
 
     if entry[0] == "faction2":
       # team 2 won
@@ -223,11 +223,12 @@ def figure5():
       for p in entry[3]:
         if p is None or p == 100.0:
           continue
-        l.append("{{{:.2f}, {:.2f}}}".format( p, team2_elo - team1_elo))
+        l.append("{{{:.2f}, {:.2f}}}".format( team2_elo - team1_elo, p))
 
 
   print(",".join(l), end="")
-  print("}}; ListPlot[fig4data, ImageSize -> Large, PlotRange-> {{{{0,40}}, {{-200,400}}}}, FrameLabel -> {{\"Elo gained by winning team (n={})\", \"Team Elo difference\"}}, PlotTheme -> \"Scientific\"]".format(len(l)))
+  print("}}; ListPlot[fig4data, ImageSize -> Large, PlotRange-> {{{{-600,600}}, {{0,50}}}}, FrameLabel -> {{\"Team Elo difference\", \"Elo gained by winning team (n={})\"}}, PlotTheme -> \"Scientific\"]".format(len(l)))
+  print("Show[ListPlot[fig4data, ImageSize -> Large, PlotRange-> {{{{-600,600}}, {{0,50}}}}, FrameLabel -> {{\"Team Elo difference\", \"Elo gained by winning team (n={})\"}}, PlotTheme -> \"Scientific\"], Plot[50/(1+10^(x/400)), {{x, -600, 600}}] ]".format(len(l)))
 
 ##########################
 
@@ -364,8 +365,6 @@ def figure9():
       upper_error = upper - p
       lower_error = lower - p
 
-    print(n)
-
     pos = float(a + b) / 2
     print("{{{:.4f}, Around[{:.4f},{{{:.3f}, {:.3f}}}]}}".format(pos, p, upper_error, lower_error), end="")
 
@@ -375,4 +374,4 @@ def figure9():
   print("}},PlotTheme -> \"Detailed\", PlotMarkers -> {{Graphics[{{Disk[]}}], 0.03}}, ImageSize -> Large, PlotTheme -> \"Scientific\", FrameLabel -> {{\"Estimated win probability (n={})\", \"Observed win probability\"}}, PlotRangeClipping -> True], Plot[t,{{t,0,1}}, PlotStyle -> {{Dashed, Darker[Green]}}], PlotRange->{{{{0, 1}},{{0, 1}}}}]".format(fig9.cnt))
 
 if __name__ == '__main__':
-  figure6()
+  figure9()
