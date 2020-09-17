@@ -21,6 +21,7 @@ I hope you enjoy the writeup and learn something new!
 
 **Updates**
 
+- 17-09-2020: Fixed an invalid statement about rating points
 - 08-03-2020: Fixed the elo change vs. elo difference plot and analysis
 - 26-02-2020: Updated plots to show the latest data
 - 21-02-2020: Added another example of weird Elo data
@@ -84,7 +85,7 @@ My theory is that while you might get more unfair individual matches in the high
 
 **3.3 Ranking**
 
-A successfully played match (no quitters, cheaters, etc.) will cause the ratings of all participants to change. We know that in **most cases** the gained Elo is a) the same for the entire team and b) the same size but negative for the other team, implying that some set number of rating points are distributed between the teams. Unfortunately, it is not that simple and contrary to many players' beliefs, it is entirely possible for one player to get a different rating change than the rest of the team. As we don't know whether the system is Elo-based, let's start by plotting (Team Elo difference before a match, Elo gained) pairs.
+A successfully played match (no quitters, cheaters, etc.) will cause the ratings of all participants to change. We know that in **most cases** the gained Elo is a) the same for the entire team and b) ~~the same size but negative for the other team,~~ some set number of rating points are distributed between the teams. That is, it is a zero sum game where the sum of the rating changes for both team is zero (or very close to it). Unfortunately, the system is not that simple and contrary to many players' beliefs, it is entirely possible for one player to get a different rating change than the rest of the team. As we don't know whether the system is Elo-based, let's start by plotting (Team Elo difference before a match, Elo gained) pairs.
 
 ![Figure 5](images/figure5.png)
 
